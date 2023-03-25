@@ -1,11 +1,16 @@
 #!/usr/bin/python3
 """Generate a pascal triangle"""
 
+
 def pascal_triangle(n):
-    """Generate a pascal triangle"""
+    """Generate a pascal triangle
+
+    args:
+        n (int): height of pascal's triangle
+    """
     if n <= 0:
         return []
-    
+
     triangle = []
     for i in range(n):
         row = [1] * (i + 1)
