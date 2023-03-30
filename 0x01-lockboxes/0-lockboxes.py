@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 """Method to determine if all boxes can be opened"""
 
 
