@@ -3,10 +3,10 @@
 
 def canUnlockAll(boxes):
     """Method to determine if all boxes can be opened
-    
+
     args:
         boxes: list of lists
-    
+
     """
     keys = [0]
     for key in keys:
