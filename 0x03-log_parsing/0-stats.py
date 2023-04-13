@@ -22,9 +22,8 @@ def parse_logs():
             status_dict[int(logs[7])] = 0
         file_size += int(logs[-1])
         status_dict[int(logs[7])] += 1
-        if count == 10:
+        if count % 10 == 0 and count != 0:
             print_output(status_dict, file_size)
-            count = 0
         count += 1
 
 
