@@ -46,7 +46,6 @@ def print_output(status_dict, file_size):
             print("{}: {}".format(k, v))
 
 
-
 try:
     parse_logs()
 except KeyboardInterrupt:
