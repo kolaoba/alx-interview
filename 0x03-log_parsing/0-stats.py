@@ -41,14 +41,13 @@ def print_output(status_dict, file_size):
         file_size (int): accummulated file size
     """
     print("File size: {}".format(file_size))
-    od = OrderedDict(sorted(status_dict.items()))
-    for k, v in od.items():
+    for k, v in status_dict.items():
         if v > 0:
             print("{}: {}".format(k, v))
 
 
-if __name__ == '__main__':
-    try:
-        parse_logs()
-    except KeyboardInterrupt:
-        print_output(status_dict, file_size)
+
+try:
+    parse_logs()
+except KeyboardInterrupt:
+    print_output(status_dict, file_size)
