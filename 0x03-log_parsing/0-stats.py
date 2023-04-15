@@ -4,7 +4,6 @@ Log Parsing
 """
 
 import sys
-from collections import OrderedDict
 
 
 def parse_logs():
@@ -23,12 +22,15 @@ def parse_logs():
     try:
         for line in sys.stdin:
             logs = line.split(" ")
-            if int(logs[-2]) in status_dict.keys() and len(logs) == 9:
-                file_size += int(logs[-1])
-                status_dict[int(logs[-2])] += 1
-            if count % 10 == 0 and count != 0:
-                print_output(status_dict, file_size)
-            count += 1
+            try:
+                if int(logs[-2]) in status_dict.keys():
+                    file_size += int(logs[-1])
+                    status_dict[int(logs[-2])] += 1
+                if count % 10 == 0 and count != 0:
+                    print_output(status_dict, file_size)
+                count += 1
+            except ValueError:
+                continue
         print_output(status_dict, file_size)
     except KeyboardInterrupt:
         print_output(status_dict, file_size)
