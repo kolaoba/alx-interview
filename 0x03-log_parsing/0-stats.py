@@ -29,6 +29,7 @@ def parse_logs():
             if count % 10 == 0 and count != 0:
                 print_output(status_dict, file_size)
             count += 1
+        print_output(status_dict, file_size)
     except KeyboardInterrupt:
         print_output(status_dict, file_size)
         raise
