@@ -36,6 +36,7 @@ def parse_logs():
         print_output(status_dict, file_size)
         raise
 
+
 def print_output(status_dict, file_size):
     """print output log stats
 
