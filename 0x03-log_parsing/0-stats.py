@@ -10,7 +10,7 @@ from collections import OrderedDict
 def parse_logs():
     """defines logic to parse logs
     """
-    count = 0
+    count = 1
     file_size = 0
     status_dict = {200: 0,
                    301: 0,
