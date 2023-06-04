@@ -37,4 +37,5 @@ def isWinner(x, nums):
         return 'Maria'
     elif ben > maria:
         return 'Ben'
-    return None
+    else:
+        return None
