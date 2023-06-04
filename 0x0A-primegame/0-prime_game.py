@@ -9,58 +9,32 @@ return: name of the player that won the most rounds
 """
 
 
-def is_prime(num):
+def isPrime(n):
     """
-    Check number is prime
+    Check if number is prime
     """
-    if num < 2:
-        return False
-    if num == 2:
-        return True
-    if num >= 3:
-        for i in range(2, num // 2 + 1):
-            if num % i == 0:
-                return False
+    for i in range(2, int(n ** 0.5) + 1):
+        if n % i == 0:
+            return False
     return True
-
-
-def generate_primes(n):
-    """
-    Generate a list of prime numbers in array n
-    """
-    return [p for p in range(2, len(n)) if is_prime(p)]
-
-
-def find_multiples(value, primes):
-    """
-    Find multiples of a value in the primes array
-    """
-    return [num for num in primes if num % value == 0]
 
 
 def isWinner(x, nums):
     """
-    Determine winner
+    return game winner
     """
-    Maria_wins = 0
-    Ben_wins = 0
+    maria = 0
+    ben = 0
+    for i in range(x):
+        noRounds = nums[i]
+        prime_count = sum(isPrime(num) for num in range(2, noRounds + 1))
 
-    while x:
-        primes = generate_primes(nums)
-        for val in primes:
-            if val in nums:
-                nums.remove(val)
-            multiples = find_multiples(val, nums)
-            for mul in multiples:
-                nums.remove(mul)
-        if len(primes) % 2 == 0:
-            Ben_wins += 1
+        if prime_count % 2 == 0:
+            ben += 1
         else:
-            Maria_wins += 1
-        x -= 1
-
-    if Maria_wins > Ben_wins:
-        return "Maria"
-    elif Ben_wins > Maria_wins:
-        return "Ben"
+            maria += 1
+    if maria > ben:
+        return 'Maria'
+    elif ben > maria:
+        return 'Ben'
     return None
